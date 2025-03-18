@@ -22,7 +22,8 @@ Repositório criado para a manutenção de artefatos de trabalho gerados pelo Gr
 |RF3|O sistema deve permitir o estudante solicitar em matrícula de turmas ofertadas para determinadas disciplinas|
 |RF4|O sistema deve permitir o estudante consultar suas turmas em que há ou houve vínculo, permitindo a visualização de detalhes|
 |RF5|O sistema deve ter suporte à multiplas linguagens|
-|RF6|O sistema deve permitir upload de arquivos|
+|RF6|O sistema deve permitir upload de arquivos| 
+|RF7|O sistema deve possuir fóruns para comunicação formal entre professor e alunos| 
 
 ### Requisitos Não Funcionais
 
@@ -33,7 +34,9 @@ Repositório criado para a manutenção de artefatos de trabalho gerados pelo Gr
 |RNF3|O login deve ser persistido no navegador do usuário durante determinado tempo|
 |RNF4|O tamanho máximo dos arquivos de upload deve ser de 10mb|
 |RNF5|Deve haver persistência automática dos formulários preenchidos pelo usuário enquanto não houver um "salvamento" definitivo|
-
+|RNF6|Sistema deve ser acessível a diferentes culturas e idiomas|
+|RNF7|Sistema deve ter um tempo limite de sessão de 30 minutos|
+|RNF8|Sistema deve possuir informações atualizadas em tempo real|
 
 ### Regras de Negócio
 
@@ -46,6 +49,18 @@ Repositório criado para a manutenção de artefatos de trabalho gerados pelo Gr
 ### Matriz de Rastreabilidade de Requisitos
 
 #### Requisitos funcionais x Requisitos Não Funcionais
+
+
+|     | RNF1 | RNF2 | RNF3 | RNF4 | RNF5 | RNF6 | RNF7 | RNF8 |
+|-----|------|------|------|------|------|------|------|------|
+| RF1 |  X   |  X   |  X   |      |      |      |  X   |      |
+| RF2 |      |  X   |  X   |      |      |      |      |      |
+| RF3 |      |  X   |  X   |      |  X   |      |      |      |
+| RF4 |      |  X   |  X   |      |      |      |      |      |
+| RF5 |      |  X   |  X   |      |      |   X  |      |   X  |
+| RF6 |      |  X   |  X   |  X   |      |      |      |      |
+| RF7 |      |  X   |  X   |      |      |      |      |   X  |
+
 
 |Requisito Funcional|Requisito Não Funcional|
 |---|---|
