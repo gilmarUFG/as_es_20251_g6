@@ -27,10 +27,10 @@ Repositório criado para a manutenção de artefatos de trabalho gerados pelo Gr
 
 ### Requisitos Não Funcionais
 
-|Id|Descrição|
-|---|---|
-|RNF1|Incluir verificação de usuário bot, aumentando a segurança do login, por meio de captcha|
-|RNF2|O sistema deve ser responsivo|
+|Id|Descrição|Atributo|
+|---|---|---|
+|RNF1|Incluir verificação de usuário bot, aumentando a segurança do login, por meio de captcha|Proteção|
+|RNF2|O sistema deve ser responsivo|Usabilidade|
 |RNF3|O login deve ser persistido no navegador do usuário durante determinado tempo|
 |RNF4|O tamanho máximo dos arquivos de upload deve ser de 10mb|
 |RNF5|Deve haver persistência automática dos formulários preenchidos pelo usuário enquanto não houver um "salvamento" definitivo|
@@ -38,6 +38,14 @@ Repositório criado para a manutenção de artefatos de trabalho gerados pelo Gr
 |RNF7|Sistema deve ter um tempo limite de sessão de 30 minutos|
 |RNF8|Sistema deve possuir informações atualizadas em tempo real|
 
+### RF X Atributos
+|RF|Atributo|Descrição
+|---|---|---|
+|RF1|Proteção, segurança e usabilidade|Por meio da autenticação do usuário, o sistema protege dados que não pertecem ao usuário logado, evita seu acesso a recursos que estão fora do seu escopo e serve apenas os módulos que estão em seu acesso.
+|RF2|Disponibilidade, usabilidade, testabilidade|Por meio da disponibilidade, é garantida a funcionalidade de envio das ações de extensão; através da usabilidade, é criada uma interface apropriada para o devido cadastro e envio das ações; e a testabilidade adiciona o retorno ao usuário de que, de fato, a ação foi cadastrada.
+|RF3|Disponibilidade, desempenho, proteção|O sistema deve ter dados atualizados e disponíveis acerca das matrículas, desempenho por comptetição de recursos e dados, tendo que lidar com a alta demanda de solicitações em um curto período de tempo, e, por fim, proteção, impedindo o estudante de realziar matrícula em curso que não possui acesso|
+|RF4|Disponibilidade, Desempenho, Usabilidade|Disponibilidade, pois o sistema precisa estar disponível para a consulta das informações, desempenho para busca eficienciente dos dados e por fim usubalizade, pois o sistema deve fornecer uma interface intuitiva para a busca, visualização e exportação desses dados|
+|RF5|Modificabilidade, Integrabilidade, Usabilidade|Modificabilidade pois o sistema deve se adapatar ao contexto da linguagem especificada, mudando valor de botões texto, estrutura dos paragrafos. Integrabilidade dado que o sistema vai consultar bibliotecas externas e serviços de terceiro para tradução. Por fim, usabilidade, haja vista que o sistema deve ser intuito no contexto e linguagem usada, sendo de fácil uso e navegação por pessoas de idiomas diferentes|
 ### Regras de Negócio
 
 |Id|Descrição|
