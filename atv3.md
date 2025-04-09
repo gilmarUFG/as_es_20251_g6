@@ -1,6 +1,6 @@
 # 🧱 Mural: Documentação de Arquitetura de Software
 **Atividade Supervisionada AS3 – Requisitos de Software**  
-**Grupo X – Engenharia de Software – UFG**
+
 
 ---
 
