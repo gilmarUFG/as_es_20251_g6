@@ -38,6 +38,54 @@ Ela serve para:
 | 🔐 Qualidades e Restrições  | Expectativas de segurança, performance, etc.                             |
 
 ---
+## 📋 Requisitos de Documentação
+
+### ✅ Requisitos de Conteúdo
+
+| Requisito | Descrição |
+|----------|-----------|
+|  **Req-1: Correto** | A documentação deve ser precisa e livre de erros. Documentação incorreta pode causar mais danos do que benefícios. |
+|  **Req-2: Atual** | Deve refletir fielmente as mudanças no sistema, como código, infraestrutura e interfaces. |
+|  **Req-3: Compreensível** | Deve ser clara, objetiva e adaptada ao público-alvo. |
+|  **Req-4: Relevante** | Estrutura, forma e conteúdo devem atender às necessidades das tarefas dos leitores. |
+
+---
+
+### ✍️ Requisitos Formais
+
+| Requisito | Descrição |
+|----------|-----------|
+|  **Req-5: Referenciável** | Utilize um esquema de numeração consistente para títulos, diagramas e tabelas, facilitando a navegação. |
+|  **Req-6: Linguagem Adequada** | Use linguagem clara, com ortografia e gramática corretas, voz ativa, afirmações positivas e frases curtas. |
+|  **Req-7: Manutenível** | A documentação deve ser de fácil manutenção, permitindo que seja atualizada conforme o sistema evolui. |
+
+---
+
+### 🧰 Requisitos de Processos e Ferramentas
+
+| Requisito | Descrição |
+|----------|-----------|
+|  **Req-8: Fácil de Encontrar** | Deve estar facilmente acessível e ser navegável e pesquisável. |
+|  **Req-9: Versão Controlada** | O histórico de mudanças da documentação deve ser mantido, como fazemos com o código. |
+|  **Req-10: Ferramentas Apropriadas** | As ferramentas utilizadas devem focar no conteúdo e reduzir o tempo gasto com configuração. |
+|  **Req-11: Atualizado Continuamente** | A documentação deve ser constantemente revisada e expandida com cada mudança relevante. |
+
+---
+
+## 💡 Documentação como Código
+
+> Ao atender aos requisitos como manutenção (Req-7), controle de versão (Req-9), uso de ferramentas (Req-10) e atualização contínua (Req-11), conclui-se que devemos tratar **documentação como código**.
+
+### 📄 Benefícios
+
+- Estrutura em subdocumentos;
+- Organização por partes interessadas;
+- Referências a imagens, sem incorporá-las diretamente;
+- Documentação em formato semelhante ao código-fonte;
+- Pull requests e revisões como no fluxo de desenvolvimento;
+- Geração de múltiplos formatos (HTML5, PDF, Confluence, etc).
+  
+---
 
 ## 🛠️ Técnicas e Ferramentas
 
