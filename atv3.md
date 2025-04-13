@@ -106,4 +106,8 @@ Ela serve para:
 ---
 
 ## 🧩 Exemplo de Interação entre Atores
+-  Os usuários e cliente geram insumo para a definição de requisitos funcionais e de qualidade por parte do analista de requisitos.
+-  Os requisitos, estruturados pelo analista, são utilizados como base na decisão de como será a arquitetura do software, definida pelo arquiteto de software.
+-  A arquitetura, devidamente documentada, é usada como inspiração pelo desenvolvedor para realizar a implementação do que foi planejado.<br/>
 
+Com base nas mudanças dos requisitos durante o projeto, esse processo pode ocorrer de forma iterativa e diversificada com o objetivo de manter a documentação sempre atualizada em relação às decisões de arquitetura.
