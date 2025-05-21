@@ -1,0 +1,23 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container(apiBackend, "API Backend", "Node.js/Java", "Processamento de lógica de negócio e integração")
+
+Container_Db(bancoDeDados, "Banco de Dados", "PostgreSQL")
+
+Component(controleCorridas, "Controle de Corridas", "REST Controller", "Gerencia solicitações de veículos")
+Component(gestaoVeiculos, "Gestão de Veículos", "Módulo de Lógica", "Verifica disponibilidade e valida veículo")
+Component(servicoRotas, "Serviço de Rotas", "Cliente HTTP", "Integra com serviço de rotas externo")
+Component(geolocalizacao, "Módulo de Geolocalização", "Utilitário", "Processa coordenadas com alta precisão")
+Component(ajuda, "Central de Ajuda", "Redirecionador", "Encaminha o usuário às FAQs")
+Component(pagamentos, "Integrador de Pagamentos", "Cliente API", "Conecta-se ao sistema de pagamentos")
+
+Rel(controleCorridas, gestaoVeiculos, "Consulta disponibilidade e confirma veículo")
+Rel(controleCorridas, servicoRotas, "Solicita rota otimizada")
+Rel(controleCorridas, geolocalizacao, "Valida localização de origem/destino")
+Rel(controleCorridas, pagamentos, "Inicia pagamento da corrida")
+Rel(controleCorridas, ajuda, "Encaminha solicitação de ajuda")
+
+Rel(controleCorridas, bancoDeDados, "Grava e consulta dados da corrida")
+Rel(gestaoVeiculos, bancoDeDados, "Consulta status do veículo")
+@enduml
