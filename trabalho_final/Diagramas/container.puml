@@ -1,0 +1,24 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(usuario, "Usuário", "Pessoa que utiliza o app")
+System_Boundary(sistema, "Sistema de Transporte Autônomo") {
+  Container(appMobile, "Aplicativo Móvel", "Flutter/React Native", "Interface do usuário para solicitar e acompanhar corridas")
+  Container(apiBackend, "API Backend", "Node.js / Spring Boot", "Gerencia lógica de negócio, comunicação e segurança")
+  Container(bancoDeDados, "Banco de Dados", "PostgreSQL", "Armazena dados de usuários, veículos, corridas e códigos de validação")
+  Container(servicoRotas, "Serviço de Cálculo de Rotas", "Python", "Calcula rotas otimizadas considerando tráfego e clima")
+  Container(faqAjuda, "Central de Ajuda / FAQs", "WebApp Estático", "Suporte a dúvidas e problemas comuns")
+}
+
+Container_Ext(apiTrafego, "API de Trânsito", "Serviço Externo", "Fornece dados de tráfego em tempo real")
+Container_Ext(apiClima, "API de Clima", "Serviço Externo", "Fornece condições meteorológicas")
+
+Rel(usuario, appMobile, "Usa para solicitar corridas, receber rotas e validar veículo")
+Rel(appMobile, apiBackend, "Chama API para solicitar corrida, validar código e acessar ajuda")
+Rel(apiBackend, bancoDeDados, "Lê e grava dados de usuários, corridas e veículos")
+Rel(apiBackend, servicoRotas, "Solicita cálculo de rotas otimizadas")
+Rel(apiBackend, faqAjuda, "Redireciona para central de ajuda")
+Rel(apiBackend, apiTrafego, "Consulta tráfego em tempo real")
+Rel(apiBackend, apiClima, "Consulta condições meteorológicas")
+
+@enduml
