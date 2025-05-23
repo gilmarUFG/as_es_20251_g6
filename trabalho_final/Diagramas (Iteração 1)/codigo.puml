@@ -1,0 +1,21 @@
+@startuml
+class SolicitarCorrida {
+  +solicitarVeiculo(localizacaoOrigem, destino)
+  +cancelarCorrida(idCorrida)
+  +obterStatusCorrida(idCorrida)
+}
+
+class ValidadorDados {
+  +validarLocalizacao(localizacao)
+  +validarDestino(destino)
+}
+
+class GestorCorrida {
+  -corridas: List<Corrida>
+  +agendarCorrida(corrida)
+  +cancelarCorrida(id)
+}
+
+SolicitarCorrida --> ValidadorDados : usa
+SolicitarCorrida --> GestorCorrida : gerencia
+@enduml
