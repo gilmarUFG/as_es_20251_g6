@@ -3,15 +3,28 @@
 
 Container(apiBackend, "API Backend", "Node.js/Java", "Lógica de negócio") {
 
-  Component(solicitacaoVeiculo, "Módulo de Solicitação", "Gerencia pedidos de corridas")
-  Component(calculoRotas, "Módulo de Rotas", "Calcula rotas otimizadas")
-  Component(validacaoVeiculo, "Módulo de Validação", "Confirma veículos por código")
-  Component(geoposicionamento, "Módulo de Geoposicionamento", "Gerencia localização precisa")
-  Component(suporteFaq, "Módulo de Suporte", "Fornece FAQs e ajuda")
+  Component(solicitacaoVeiculoController, "Controller de Solicitação de Veículo", "Recebe requisições de pedidos de corridas")
+  Component(solicitacaoVeiculoService, "Service de Solicitação de Veículo", "Processa requisições de pedidos de corridas")
+  Component(solicitacaoVeiculosRepository, "Repository de Solicitação de Veículo", "Controla a persistência de dados de pedidos de corrida")
+  Component(calculoRotasService, "Service de Rotas", "Calcula rotas otimizadas")
+  Component(validacaoVeiculoController, "Controller de Validação", "Recebe requisições para manipulação de codigo de confirmação")
+  Component(validacaoVeiculoService, "Service de Validação", "Processa manipulação de código de confirmação")
+  Component(validacaoVeiculoRepository, "Repository de Validação", "Controla a persistência dos dados de código de confirmação")
+  Component(geoposicionamentoController, "Controller de Geoposicionamento", "Recebe as requisições de geoposicionamento")
+  Component(geoposicionamentoService, "Service de Geoposicionamento", "Gerencia localização precisa e confiável")
+  Component(geoposicionamentoRepository, "Repository de Geoposicionamento", "Controla a persistência dos dados de código de geoposicionamento")
+  ' Component(suporteFaq, "Módulo de Suporte", "Fornece FAQs e ajuda")
 
-  Rel(solicitacaoVeiculo, bancoDeDados, "Grava e lê dados de corrida")
-  Rel(calculoRotas, servicoRotas, "Solicita cálculo de rota")
-  Rel(validacaoVeiculo, bancoDeDados, "Consulta códigos de confirmação")
-  Rel(suporteFaq, faqAjuda, "Redireciona para serviço estático")
+  Rel(solicitacaoVeiculoController, solicitacaoVeiculoService, "Chama os métodos")
+  Rel(solicitacaoVeiculoService, solicitacaoVeiculosRepository, "Usa o banco de dados")
+
+  Rel(validacaoVeiculoController, validacaoVeiculoService, "Chama os métodos")
+  Rel(validacaoVeiculoService, validacaoVeiculoRepository, "Usa o banco de dados")
+  Rel(solicitacaoVeiculoService, calculoRotasService, "Solicita o cálculo de rota")
+  Rel(solicitacaoVeiculoService, validacaoVeiculoService, "Gera o código de confirmação na chamada da corrida")
+  Rel(calculoRotasService, geoposicionamentoService, "Usa o geoposicionamento do veículo para os cálculos")
+  Rel(geoposicionamentoController, geoposicionamentoService, "Chama os métodos")
+  Rel(geoposicionamentoService, geoposicionamentoRepository, "Usa o banco de dados")
+  ' Rel(suporteFaq, faqAjuda, "Redireciona para serviço estático")
 }
 @enduml

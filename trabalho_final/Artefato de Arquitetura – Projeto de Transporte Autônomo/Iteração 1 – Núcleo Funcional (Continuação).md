@@ -34,37 +34,47 @@ O diagrama de código detalha o componente **Controlador de Solicitação de Cor
 
 #### Classes e Interfaces Principais
 
-- **SolicitacaoCorridaController**  
+- **SolicitacaoVeiculoController**  
   Expõe endpoints REST para receber as requisições do app móvel, orquestra o fluxo de validação e agendamento.
 
-- **SolicitacaoService**  
+- **SolicitacaoVeiculoService**  
   Contém a lógica para validar dados de entrada, verificar disponibilidade dos veículos e registrar a corrida no banco.
 
-- **CodigoValidacaoService**  
-  Gera e valida códigos únicos para confirmação da corrida, garantindo a segurança no embarque.
+- **SolicitacaoVeiculosRepository**  
+  Responsável pela persistência dos dados de solicitações de corridas no banco de dados.
 
-- **RotaServiceClient**  
-  Cliente HTTP que comunica com o serviço de cálculo de rotas, requisitando trajetos otimizados.
+- **CalculoRotasService**  
+  Realiza o cálculo de rotas otimizadas, utilizando dados de geoposicionamento e integrando-se ao serviço externo de rotas.
 
-- **LocalizacaoTracker**  
-  Processa e armazena os dados de geoposicionamento recebidos do dispositivo e veículo.
+- **ValidacaoVeiculoController**  
+  Expõe endpoints REST para manipulação e validação dos códigos de confirmação de embarque.
 
-- **FAQService**  
-  Controla o acesso às perguntas frequentes e conteúdo de suporte, garantindo disponibilidade offline.
+- **ValidacaoVeiculoService**  
+  Processa a geração e validação dos códigos de confirmação, garantindo a segurança do embarque.
+
+- **ValidacaoVeiculoRepository**  
+  Gerencia a persistência dos dados relacionados aos códigos de confirmação.
+
+- **GeoposicionamentoController**  
+  Recebe e processa requisições de atualização de localização dos veículos e dispositivos.
+
+- **GeoposicionamentoService**  
+  Gerencia e consolida informações de localização, garantindo precisão e confiabilidade dos dados.
+
+- **GeoposicionamentoRepository**  
+  Responsável pela persistência dos dados de geoposicionamento no banco de dados.
 
 ---
 
 ### 10. Fluxo de Interação Interna
 
-1. O **SolicitacaoCorridaController** recebe uma solicitação do app contendo localização e destino.
-2. Encaminha a requisição ao **SolicitacaoService**, que valida os dados e verifica disponibilidade.
-3. Solicita a rota otimizada ao **RotaServiceClient**.
-4. Registra a corrida no banco via repositórios de dados.
-5. Gera um código de confirmação pelo **CodigoValidacaoService**.
-6. Retorna a confirmação e detalhes da corrida para o app.
-7. Durante a corrida, o **LocalizacaoTracker** atualiza a posição em tempo real.
-8. Em caso de dúvidas, o app consulta o **FAQService**.
-
+1. O **SolicitacaoVeiculoController** recebe uma solicitação do app contendo localização e destino do usuário.
+2. O controller encaminha a requisição ao **SolicitacaoVeiculoService**, que valida os dados recebidos e verifica a disponibilidade de veículos.
+3. O **SolicitacaoVeiculoService** solicita ao **CalculoRotasService** o cálculo da rota otimizada, utilizando informações do **GeoposicionamentoService** para obter a posição atual dos veículos.
+4. Após obter a rota, o **SolicitacaoVeiculoService** registra a corrida no banco de dados por meio do **SolicitacaoVeiculosRepository**.
+5. Em seguida, o **SolicitacaoVeiculoService** aciona o **ValidacaoVeiculoService** para gerar o código de confirmação de embarque, que é persistido pelo **ValidacaoVeiculoRepository**.
+6. O controller retorna ao app a confirmação da corrida, detalhes da rota e o código de embarque.
+7. Durante a corrida, o **GeoposicionamentoController** recebe atualizações de localização dos veículos e dispositivos, repassando ao **GeoposicionamentoService**, que consolida e armazena os dados via **GeoposicionamentoRepository**.
 ---
 
 ### 11. Tecnologias e Padrões de Implementação
@@ -89,5 +99,3 @@ Esta detalhamento interno prepara a base para implementação e testes focados, 
 - Diagramas PlantUML para Componentes e Código que ilustram exatamente estes detalhes estarão disponíveis para complementar esta documentação.
 
 ---
-
-Quer que eu gere agora os arquivos PlantUML correspondentes para esses diagramas?  
