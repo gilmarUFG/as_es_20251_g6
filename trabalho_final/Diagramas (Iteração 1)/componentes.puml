@@ -1,0 +1,17 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container(apiBackend, "API Backend", "Node.js/Java", "Lógica de negócio") {
+
+  Component(solicitacaoVeiculo, "Módulo de Solicitação", "Gerencia pedidos de corridas")
+  Component(calculoRotas, "Módulo de Rotas", "Calcula rotas otimizadas")
+  Component(validacaoVeiculo, "Módulo de Validação", "Confirma veículos por código")
+  Component(geoposicionamento, "Módulo de Geoposicionamento", "Gerencia localização precisa")
+  Component(suporteFaq, "Módulo de Suporte", "Fornece FAQs e ajuda")
+
+  Rel(solicitacaoVeiculo, bancoDeDados, "Grava e lê dados de corrida")
+  Rel(calculoRotas, servicoRotas, "Solicita cálculo de rota")
+  Rel(validacaoVeiculo, bancoDeDados, "Consulta códigos de confirmação")
+  Rel(suporteFaq, faqAjuda, "Redireciona para serviço estático")
+}
+@enduml
