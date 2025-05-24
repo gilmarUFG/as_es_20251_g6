@@ -5,7 +5,7 @@ Person(usuario, "Usuário", "Pessoa que utiliza o app")
 System_Boundary(sistema, "Sistema de Transporte Autônomo") {
   Container(appMobile, "Aplicativo Móvel", "Flutter/React Native", "Interface do usuário para solicitar e acompanhar corridas")
   Container(apiBackend, "API Backend", "Node.js / Spring Boot", "Gerencia lógica de negócio, comunicação e segurança")
-  Container(bancoDeDados, "Banco de Dados", "PostgreSQL", "Armazena dados de usuários, veículos, corridas e códigos de validação")
+  ContainerDb(bancoDeDados, "Banco de Dados", "PostgreSQL", "Armazena dados de usuários, veículos, corridas e códigos de validação")
   Container(servicoRotas, "Serviço de Cálculo de Rotas", "Python", "Calcula rotas otimizadas considerando tráfego e clima")
   Container(faqAjuda, "Central de Ajuda / FAQs", "WebApp Estático", "Suporte a dúvidas e problemas comuns")
 }
