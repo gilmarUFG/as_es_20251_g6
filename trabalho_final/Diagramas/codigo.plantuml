@@ -1,0 +1,62 @@
+@startuml 
+class VeiculoAutonomo{
+- String placa
+- String chassi
+- String autonomia
+- String hodometroTotal
+- String motor
+- StatusManutencao statusManutencao
+}
+
+Enum StatusManutencao{
+OK
+NECESSITA
+NECESSITA_URGENCIA
+}
+
+class PontoRecarga{
+ - boolean disponivel
+}
+
+class viagem{
+ - Date dataInicio
+ - Date dataFim
+}
+
+class Localizacao{
+ - Integer longitude
+ - Integer latitude
+ - String descricao
+}
+
+class CodigoConfirmacao{
+ - Date dataGeracao
+ - boolean valido
+ - String codigo
+}
+
+class Passageiro{
+ - String nome
+ - String telefone
+}
+
+class Recarga{
+ - Date dataInicio
+ - Date dataFim
+ - Integer energiaGasta
+}
+
+viagem o-- Passageiro
+viagem o-- VeiculoAutonomo
+viagem *-- CodigoConfirmacao
+viagem o-- "2" Localizacao: Localizacação de partida e chegada
+Passageiro o-- Localizacao
+VeiculoAutonomo o-- Localizacao
+PontoRecarga o-- Localizacao
+PontoRecarga "1" o-- "0..*" Recarga
+VeiculoAutonomo "1" o-- "0..*" Recarga
+
+VeiculoAutonomo -- StatusManutencao
+
+
+@enduml
