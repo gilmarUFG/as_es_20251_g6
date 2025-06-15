@@ -34,9 +34,9 @@ Este documento apresenta os dez requisitos funcionais definidos pela equipe para
    *Prioridade: Alta | Autor: Mateus Henrique Gandi de Oliveira*  
    O sistema deve ser capaz de falar, dando instruções ao usuário e respondendo a dúvidas em tempo real, reduzindo a tensão no uso e aumentando a confiança.
 
-7. **RF07 – Após a viagem, o usuário deve poder avaliar o serviço e relatar problemas.**  
+7. **RF07 – Avaliação do Serviço**  
    *Prioridade: Média | Autor: Aline Lima Martins Coelho*  
-   Os veículos autônomos devem seguir as normas de trânsito estabelecidas no local de atuação.
+   Após a viagem, o usuário deve poder avaliar o serviço e relatar problemas..
 
 8. **RF08 – Relato de Problemas Durante a Viagem**  
    *Prioridade: Alta | Autor: José Alves De Oliveira Neto*  
@@ -46,7 +46,7 @@ Este documento apresenta os dez requisitos funcionais definidos pela equipe para
    *Prioridade: Alta | Autor: Jheissyane Kelly da Silva Souza*  
    O sistema deve ser capaz de identificar quando um veículo precisa ser recarregado ou abastecido e não disponibilizá-lo para uso até que esteja pronto.
 
-10. **RF10 – O veículo deve ser capaz de perceber riscos e reagir antes que ocorram acidentes.**  
+10. **RF10 – Detecção de Riscos**  
     *Prioridade: Alta | Autor: Aline Nunes Dos Santos*  
     O veículo deve ser capaz de perceber riscos e reagir antes que ocorram acidentes.
 
