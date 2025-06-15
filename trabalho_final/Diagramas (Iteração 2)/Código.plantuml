@@ -1,0 +1,117 @@
+@startuml
+title Modelo de Domínio - Sistema de Veículos Autônomos (Análise)
+
+class Usuario {
+  - nome: string
+  - telefone: string
+  - email: string
+}
+
+class Localizacao {
+  - latitude: float
+  - longitude: float
+  - descricao: string
+}
+
+class VeiculoAutonomo {
+  - placa: string
+  - chassi: string
+  - autonomia: float
+  - statusBateria: string
+  - emOperacao: boolean
+}
+
+class Solicitacao {
+  - dataHora: DateTime
+  - estimativaChegada: int
+}
+
+class Viagem {
+  - dataInicio: DateTime
+  - dataFim: DateTime
+}
+
+class AvaliacaoFinal {
+    - nota: int
+    - observacao: string
+}
+
+class EmergenciaOcorrida {
+    - descricao: int
+    - dataOcorrencia: DateTime
+    - resolvido: boolean
+    - gravidade: EGravidadeEmergencia
+}
+
+class AcidenteOcorrido{
+    - dataOcorrencia: DateTime
+    - fotosRegistrada : string[]
+}
+
+Enum EGravidadeEmergencia{
+    LEVE
+    MÉDIA
+    GRAVE
+}
+
+class CodigoConfirmacao {
+  - codigo: string
+  - valido: boolean
+  - dataGeracao: DateTime
+}
+
+class Rota {
+  - distancia: float
+  - tempoEstimado: int
+  - condicoesClimaticas: string
+  - statusTrafego: string
+}
+
+class PontoRecarga {
+  - id: string
+  - disponivel: boolean
+}
+
+class Recarga {
+  - dataInicio: DateTime
+  - dataFim: DateTime
+  - energiaFornecida: float
+}
+
+class SistemaDetecaoRisco {
+  - sensoresAtivos: boolean
+  - ultimaCalibracao: DateTime
+}
+
+class EventoRisco {
+  - dataOcorrencia: DateTime
+  - localizacao: Localizacao
+  - resolvido: boolean
+}
+
+Usuario "1" -- "0..*" Solicitacao : realiza
+Solicitacao "1" -- "1" Localizacao : localPartida
+Solicitacao "1" -- "1" Localizacao : localDestino
+Solicitacao "1" -- "1" VeiculoAutonomo : veiculoDesignado
+
+Viagem "1" -- "1" Usuario : passageiro
+Viagem "1" -- "1" VeiculoAutonomo : veiculo
+Viagem "1" -- "1" CodigoConfirmacao : codigoConfirmacao
+Viagem "1" -- "1" Rota : rota
+Viagem "1" -- "0..1" AvaliacaoFinal
+Viagem "1" -- "0..*" EmergenciaOcorrida
+
+EGravidadeEmergencia -- EmergenciaOcorrida
+AcidenteOcorrido "0..1" -- "1" EmergenciaOcorrida
+EGravidadeEmergencia -- AcidenteOcorrido
+
+VeiculoAutonomo "1" -- "1" Localizacao : localizacaoAtual
+VeiculoAutonomo "0..*" -- "0..*" Recarga : recargas
+VeiculoAutonomo -- SistemaDetecaoRisco
+Rota -- "0..2" Localizacao
+
+SistemaDetecaoRisco "1" -- "0..*" EventoRisco
+EventoRisco "1" -- "0..1" EmergenciaOcorrida
+PontoRecarga "1" -- "1" Localizacao : localizacao
+PontoRecarga "0..*" -- "0..*" Recarga : recargasDisponiveis
+@enduml
