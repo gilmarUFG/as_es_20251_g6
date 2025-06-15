@@ -34,8 +34,8 @@ Este documento apresenta os dez requisitos funcionais definidos pela equipe para
    *Prioridade: Alta | Autor: Mateus Henrique Gandi de Oliveira*  
    O sistema deve ser capaz de falar, dando instruções ao usuário e respondendo a dúvidas em tempo real, reduzindo a tensão no uso e aumentando a confiança.
 
-7. **RF07 – Conformidade com Normas de Trânsito**  
-   *Prioridade: Alta | Autor: João Vitor Alves dos Reis*  
+7. **RF07 – Após a viagem, o usuário deve poder avaliar o serviço e relatar problemas.**  
+   *Prioridade: Média | Autor: Aline Lima Martins Coelho*  
    Os veículos autônomos devem seguir as normas de trânsito estabelecidas no local de atuação.
 
 8. **RF08 – Relato de Problemas Durante a Viagem**  
@@ -46,8 +46,8 @@ Este documento apresenta os dez requisitos funcionais definidos pela equipe para
    *Prioridade: Alta | Autor: Jheissyane Kelly da Silva Souza*  
    O sistema deve ser capaz de identificar quando um veículo precisa ser recarregado ou abastecido e não disponibilizá-lo para uso até que esteja pronto.
 
-10. **RF10 – Pontos de Recarga Estratégicos**  
-    *Prioridade: Média | Autor: Gabriel Borges Garcia*  
-    A empresa deve colocar pontos de recargas em pontos estratégicos da cidade.
+10. **RF10 – O veículo deve ser capaz de perceber riscos e reagir antes que ocorram acidentes.**  
+    *Prioridade: Alta | Autor: Aline Nunes Dos Santos*  
+    O veículo deve ser capaz de perceber riscos e reagir antes que ocorram acidentes.
 
 ---
