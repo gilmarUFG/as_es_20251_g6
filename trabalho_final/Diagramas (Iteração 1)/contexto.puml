@@ -1,23 +1,14 @@
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
-' Atores humanos
-Person(usuario, "Usuário", "Pessoa que utiliza o app para solicitar e interagir com veículos autônomos")
+Person(usuario, "Usuário", "Pessoa que solicita transporte via app")
+System(sistema, "Sistema de Transporte Autônomo", "Sistema para solicitar, gerenciar e acompanhar veículos autônomos")
+System_Ext(servicoDePagamentos, "Sistema de Pagamentos", "Processa pagamentos das corridas")
+System_Ext(apiTrafego, "API de Trânsito", "Fornece dados de tráfego em tempo real")
+System_Ext(apiClima, "API de Clima", "Fornece dados meteorológicos")
 
-' Sistema principal
-System(sistema, "Sistema de Transporte Autônomo", "Plataforma que gerencia solicitações, rotas, energia e interação com usuários")
-
-' Sistemas externos
-System_Ext(apiTrafego, "API de Tráfego", "Fornece dados de trânsito em tempo real")
-System_Ext(apiClima, "API de Clima", "Fornece condições meteorológicas atuais")
-System_Ext(servicoVoz, "Serviço de Voz", "Permite comunicação por voz com o usuário")
-System_Ext(sistemaEnergia, "Sistema de Energia", "Gerencia o nível de carga dos veículos e os pontos de recarga")
-
-' Relacionamentos diretos com os RFs como descrição
-Rel(usuario, sistema, "Solicita corrida, valida veículo, recebe estimativas e instruções por voz (RF01, RF03, RF06)")
-Rel(sistema, apiTrafego, "Consulta tráfego para rotas otimizadas (RF02)")
-Rel(sistema, apiClima, "Consulta clima para rotas otimizadas (RF02)")
-Rel(sistema, servicoVoz, "Comunicação por voz com o usuário (RF06)")
-Rel(sistema, sistemaEnergia, "Gerencia energia e recarga de veículos (RF09, RF10)")
-
+Rel(usuario, sistema, "Solicita corrida, recebe confirmação, valida veículo e acessa ajuda")
+Rel(sistema, servicoDePagamentos, "Envia dados para pagamento")
+Rel(sistema, apiTrafego, "Consulta dados de tráfego")
+Rel(sistema, apiClima, "Consulta dados de clima")
 @enduml
