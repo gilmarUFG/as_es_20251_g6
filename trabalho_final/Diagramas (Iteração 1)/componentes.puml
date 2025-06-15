@@ -1,76 +1,37 @@
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-System(sistema, "Sistema Autônomo de Corridas", "Permite solicitação e operação de veículos autônomos.")
+' Contêineres principais do sistema
+Container(app, "App Móvel", "Flutter/Android", "Interface para o usuário solicitar corridas e acessar informações.")
+Container(apiBackend, "API Backend", "Node.js/Java", "Responsável por lógica de negócio, comunicação com veículos, serviços e FAQ.")
+Container(servicoRotas, "Serviço de Cálculo de Rotas", "Python", "Calcula rotas otimizadas considerando APIs externas.")
+Container(faqAjuda, "Página de Dúvidas/FAQ", "HTML Estático", "Conteúdo estático consultado pelo app via backend.")
+Container(banco, "Banco de Dados", "PostgreSQL", "Armazena dados de usuários, corridas, avaliações e logs.")
 
-' --- FRONTEND
-Container(app, "App Móvel", "Flutter", "Interface com o usuário final")
+' Veículo embarcado como conjunto de containers
+Container(veiculoBridge, "VeículoBridge", "MQTT/REST", "Recebe comandos do backend e envia eventos do veículo.")
+Container(veiculoComponent, "VeículoComponent", "C++/ROS", "Executa decisões autônomas e controla o veículo.")
+Container(geoModule, "GeoPositioningModule", "Sensor GPS/IMU", "Fornece localização precisa.")
+Container(powerMonitor, "PowerMonitor", "Sensor embarcado", "Monitora energia e autonomia.")
+Container(riskEngine, "RiskDetectionEngine", "IA embarcada", "Detecta riscos e toma decisões de segurança.")
 
-' --- API BACKEND
-Container(apiController, "API Controller", "Node.js", "Recebe requisições HTTP/MQTT do App ou do Veículo")
-Container(apiService, "API Service", "Java", "Processa regras de negócio (corrida, cancelamento, avaliação)")
-Container(apiBridge, "API Bridge", "MQTT Client", "Comunica com o veículo e serviços externos")
-Container(banco, "Banco de Dados", "PostgreSQL", "Armazena dados do sistema")
-Container(faqAjuda, "Central de Ajuda", "HTML Estático", "Conteúdo acessado via API")
+' APIs externas
+Container(apiTransito, "API de Trânsito", "REST", "Fornece dados de tráfego em tempo real.")
+Container(apiClima, "API de Clima", "REST", "Fornece dados climáticos em tempo real.")
 
-' --- SERVIÇO DE ROTAS
-Container(servicoRotasController, "RotasController", "Python REST", "Recebe pedidos de cálculo de rotas")
-Container(servicoRotasService, "RotasService", "Python", "Processa algoritmos de rotas com dados externos")
+' Relacionamentos
+Rel(app, apiBackend, "Envia requisições", "HTTPS")
+Rel(apiBackend, servicoRotas, "Solicita cálculo de rota", "REST")
+Rel(apiBackend, banco, "Lê e grava dados", "SQL")
+Rel(apiBackend, faqAjuda, "Consulta conteúdo", "HTTP")
+Rel(apiBackend, veiculoBridge, "Envia comandos e recebe eventos", "MQTT/REST")
 
-' --- APIs externas
-Container(apiTransito, "API de Trânsito", "REST", "Fornece dados em tempo real de tráfego")
-Container(apiClima, "API de Clima", "REST", "Fornece dados climáticos")
+Rel(servicoRotas, apiTransito, "Consulta tráfego")
+Rel(servicoRotas, apiClima, "Consulta clima")
 
-' --- VEÍCULO - BRIDGE + LÓGICA
-Container(veiculoBridge, "VehicleBridge", "MQTT/REST", "Gateway principal de comunicação com o backend")
-
-Container(vehicleController, "VehicleController", "ROS/Node", "Recebe comandos do bridge (parar, desviar)")
-Container(vehicleService, "VehicleService", "C++", "Executa lógica de navegação e controle do carro")
-
-' --- MÓDULOS DO VEÍCULO
-
-Container(geoController, "GeoPositioningController", "Sensor Driver", "Recebe sinal de GPS")
-Container(geoService, "GeoPositioningService", "GPS Logic", "Interpreta localização e atualiza posição")
-
-Container(powerController, "PowerMonitorController", "Sensor Driver", "Monitora carga elétrica")
-Container(powerService, "PowerMonitorService", "Battery Logic", "Analisa autonomia, define disponibilidade")
-
-Container(riskController, "RiskDetectionController", "Sensor Fusion", "Recebe dados de sensores")
-Container(riskService, "RiskDetectionService", "IA de Prevenção", "Prevê colisões e executa manobras")
-
-' --- RELACIONAMENTOS
-
-' App
-Rel(app, apiController, "Solicita corrida, cancela, avalia", "HTTPS")
-
-' Backend
-Rel(apiController, apiService, "Repassa requisições")
-Rel(apiService, banco, "Consulta e atualiza")
-Rel(apiService, faqAjuda, "Consulta conteúdo")
-Rel(apiService, apiBridge, "Solicita ações no veículo")
-
-' API Bridge <-> VeículoBridge
-Rel(apiBridge, veiculoBridge, "Envia comandos e recebe eventos", "MQTT")
-
-' Veículo
-Rel(veiculoBridge, vehicleController, "Comandos recebidos do backend")
-Rel(vehicleController, vehicleService, "Executa lógica embarcada")
-
-' Módulos - Veículo
-Rel(vehicleService, geoController, "Consulta posição")
-Rel(geoController, geoService, "Fornece localização")
-
-Rel(vehicleService, powerController, "Verifica energia")
-Rel(powerController, powerService, "Análise de autonomia")
-
-Rel(vehicleService, riskController, "Monitora sensores")
-Rel(riskController, riskService, "Prevê risco e executa ações")
-
-' Rotas
-Rel(apiService, servicoRotasController, "Solicita rota")
-Rel(servicoRotasController, servicoRotasService, "Calcula rota")
-Rel(servicoRotasService, apiTransito, "Consulta tráfego")
-Rel(servicoRotasService, apiClima, "Consulta clima")
-Rel(servicoRotasService, geoService, "Consulta localização atual")
+Rel(veiculoBridge, veiculoComponent, "Repassa eventos e comandos")
+Rel(veiculoComponent, geoModule, "Consulta localização")
+Rel(veiculoComponent, powerMonitor, "Consulta energia")
+Rel(veiculoComponent, riskEngine, "Recebe alertas de risco")
 
 @enduml
