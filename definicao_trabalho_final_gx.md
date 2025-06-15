@@ -10,19 +10,19 @@ Este documento apresenta os dez requisitos funcionais definidos pela equipe para
    *Prioridade: Alta | Autor: Guilherme Gonçalves Dutra de Mendonça*  
    O usuário deve ser capaz de solicitar um veículo autônomo pelo aplicativo, informando sua localização atual e destino desejado, e receber uma estimativa de tempo para a chegada do veículo.
 
-2. **RNF01 – Cálculo de Rotas Otimizadas**  
+2. **RF02 – Cálculo de Rotas Otimizadas**  
    *Prioridade: Alta | Autor: Lucas Gabriel Nunes Alves*  
    O aplicativo deve ser capaz de calcular rotas otimizadas para veículos autônomos, levando em consideração o tráfego em tempo real, condições meteorológicas e restrições de tráfego.
 
-3. **RF02 – Validação do Veículo por Código de Confirmação**  
+3. **RF03 – Validação do Veículo por Código de Confirmação**  
    *Prioridade: Alta | Autor: Stephany de Oliveira Sousa Milhomem*  
    O sistema deve permitir que o passageiro valide se o veículo que chegou é o correto por meio de um código de confirmação exibido no aplicativo e no painel do veículo.
 
-4. **RNF02 – Sistema de Geoposicionamento Preciso**  
+4. **RF04 – Sistema de Geoposicionamento Preciso**  
    *Prioridade: Alta | Autor: Álvaro Veloso Lisboa*  
    Sistema de geoposicionamento deve ser preciso e à prova de falhas, para evitar erros de localização ao solicitar o veículo e definir destino.
 
-5. **RF03 – Suporte a Problemas Comuns (FAQs e Central de Ajuda)**  
+5. **RF05 – Suporte a Problemas Comuns (FAQs e Central de Ajuda)**  
    *Prioridade: Alta | Autor: Samuel José Evangelista Alves*  
    O sistema deve ter uma seção de FAQs e uma central de ajuda dentro do app para problemas comuns, como agendamento de corridas, pagamento e questões de segurança.
 
@@ -30,23 +30,23 @@ Este documento apresenta os dez requisitos funcionais definidos pela equipe para
 
 ## Iteração 2
 
-6. **RF04 – Comunicação com o Usuário via Voz**  
+6. **RF06 – Comunicação com o Usuário via Voz**  
    *Prioridade: Alta | Autor: Mateus Henrique Gandi de Oliveira*  
    O sistema deve ser capaz de falar, dando instruções ao usuário e respondendo a dúvidas em tempo real, reduzindo a tensão no uso e aumentando a confiança.
 
-7. **RNF03 – Conformidade com Normas de Trânsito**  
+7. **RF07 – Conformidade com Normas de Trânsito**  
    *Prioridade: Alta | Autor: João Vitor Alves dos Reis*  
    Os veículos autônomos devem seguir as normas de trânsito estabelecidas no local de atuação.
 
-8. **RNF04 – Tolerância a Problemas de Conectividade**  
-   *Prioridade: Alta | Autor: Mauro Sérgio do Nascimento Junior*  
-   O sistema deve ser tolerante a problemas de conectividade.
+8. **RF08 – Relato de Problemas Durante a Viagem**  
+   *Prioridade: Alta | Autor: José Alves De Oliveira Neto*  
+   O aplicativo deve incluir um sistema de comunicação ou chamada de emergência para que os usuários possam relatar problemas durante a viagem.
 
-9. **RNF05 – Detecção de Veículo com Baixa Carga**  
+9. **RF09 – Detecção de Veículo com Baixa Carga**  
    *Prioridade: Alta | Autor: Jheissyane Kelly da Silva Souza*  
    O sistema deve ser capaz de identificar quando um veículo precisa ser recarregado ou abastecido e não disponibilizá-lo para uso até que esteja pronto.
 
-10. **RF5 – Pontos de Recarga Estratégicos**  
+10. **RF10 – Pontos de Recarga Estratégicos**  
     *Prioridade: Média | Autor: Gabriel Borges Garcia*  
     A empresa deve colocar pontos de recargas em pontos estratégicos da cidade.
 
