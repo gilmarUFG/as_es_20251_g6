@@ -3,7 +3,8 @@
 
 Person(usuario, "Usuário", "Pessoa que utiliza o app")
 System_Boundary(sistema, "Sistema de Transporte Autônomo") {
-  Container(appMobile, "Aplicativo Móvel", "Flutter/React Native", "Interface do usuário para solicitar e acompanhar corridas")
+  Container(appMobile, "Aplicativo Móvel", "Flutter/React Native", "Interface do usuário para solicitar, acompanhar corridas e fala ")
+  Container(veiculo, "Sistemas Embarcados do veículo", "Sensores (Lidar, Cargas, Nível combustível), Câmeras, Computador de Bordo")
   Container(apiBackend, "API Backend", "Node.js / Spring Boot", "Gerencia lógica de negócio, comunicação e segurança")
   ContainerDb(bancoDeDados, "Banco de Dados", "PostgreSQL", "Armazena dados de usuários, veículos, corridas e códigos de validação")
   Container(servicoRotas, "Serviço de Cálculo de Rotas", "Python", "Calcula rotas otimizadas considerando tráfego e clima")
@@ -13,7 +14,9 @@ System_Boundary(sistema, "Sistema de Transporte Autônomo") {
 Container_Ext(apiTrafego, "API de Trânsito", "Serviço Externo", "Fornece dados de tráfego em tempo real")
 Container_Ext(apiClima, "API de Clima", "Serviço Externo", "Fornece condições meteorológicas")
 
-Rel(usuario, appMobile, "Usa para solicitar corridas, receber rotas e validar veículo")
+
+Rel(usuario, appMobile, "Usa para solicitar corridas, receber rotas, validar veículo e mecanismos de diálogo")
+Rel(apiBackend, veiculo, "Comunica-se com o veículo para solicitar corridas e validar códigos")
 Rel(appMobile, apiBackend, "Chama API para solicitar corrida, validar código e acessar ajuda")
 Rel(apiBackend, bancoDeDados, "Lê e grava dados de usuários, corridas e veículos")
 Rel(apiBackend, servicoRotas, "Solicita cálculo de rotas otimizadas")
