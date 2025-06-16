@@ -7,6 +7,7 @@ participant "API Service" as SSV
 participant "RotasController" as RC
 participant "RotasService" as SR
 participant "GeoPositioningService" as SG
+participant "API de Pagamentos" as PAGAMENTOS
 participant "API Bridge" as BRIDGE
 participant "Vehicle Bridge" as VEHICLE
 database "Postgres" as BD
@@ -39,15 +40,18 @@ else localizacaoInicial != localizacaoDestino
     SR -> SR: calcularMelhorRota(localizacaoInicial, localizacaoFinal)
     activate SR
     deactivate SR
-    SR --> RC: Melhor rota
-    RC --> SSV: Melhor rota
+    SR -> BD: persistirCorrida(corrida)
+    activate BD
+    deactivate BD
+    SR --> RC: Melhor rota, valor
+    RC --> SSV: Melhor rota, valor
     deactivate RC
     deactivate SR
-    SSV --> SCV: Melhor rota
-    SCV --> APP: Melhorar rota
-    APP --> user: Rota disponível para visualização do usuário
+    SSV --> SCV: Melhor rota, valor
+    SCV --> APP: Melhor rota, valor
+    APP --> user: Rota e valor disponível para visualização do usuário
     deactivate SG
-    user -> APP: confirmar corrida
+    user -> APP: confirma corrida
     APP -> SCV: POST /confirmar-corrida (corrida)
     SCV -> SSV: confirmarCorrida(corrida)
     activate BD
@@ -55,10 +59,13 @@ else localizacaoInicial != localizacaoDestino
     deactivate BD
     activate BRIDGE
     SSV -> BRIDGE: solicitarVeiculo(corrida)
-    deactivate BRIDGE
     activate VEHICLE
     BRIDGE -> VEHICLE: MQTT publish (veículo/5332/iniciar-corrida)
+    deactivate BRIDGE
     deactivate VEHICLE
+    SSV -> PAGAMENTOS: criarPagamento(valor)
+    activate PAGAMENTOS
+    deactivate PAGAMENTOS
     deactivate SSV
 end
 deactivate SR
