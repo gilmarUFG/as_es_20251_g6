@@ -1,14 +1,22 @@
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
-Person(usuario, "Usuário", "Pessoa que solicita transporte via app")
-System(sistema, "Sistema de Transporte Autônomo", "Sistema para solicitar, gerenciar e acompanhar veículos autônomos")
-System_Ext(servicoDePagamentos, "Sistema de Pagamentos", "Processa pagamentos das corridas")
-System_Ext(apiTrafego, "API de Trânsito", "Fornece dados de tráfego em tempo real")
-System_Ext(apiClima, "API de Clima", "Fornece dados meteorológicos")
+' Atores humanos
+Person(usuario, "Usuário", "Pessoa que utiliza o app para solicitar e interagir com veículos autônomos")
 
-Rel(usuario, sistema, "Solicita corrida, recebe confirmação, valida veículo e acessa ajuda")
-Rel(sistema, servicoDePagamentos, "Envia dados para pagamento")
-Rel(sistema, apiTrafego, "Consulta dados de tráfego")
-Rel(sistema, apiClima, "Consulta dados de clima")
+' Sistema principal
+System(sistema, "Sistema de Transporte Autônomo", "Plataforma que gerencia solicitações, rotas, energia e interação com usuários")
+
+' Sistemas externos
+System_Ext(apiTrafego, "API de Tráfego", "Fornece dados de trânsito em tempo real")
+System_Ext(apiClima, "API de Clima", "Fornece condições meteorológicas atuais")
+System_Ext(servicoDePagamentos, "Sistema de Pagamentos", "Processa pagamentos das corridas")
+
+
+' Relacionamentos
+Rel(usuario, sistema, "Solicita corridas, valida veículos e recebe estimativas/instruções por voz")
+
+Rel(sistema, apiTrafego, "Consulta dados de tráfego para calcular rotas otimizadas")
+Rel(sistema, apiClima, "Consulta dados meteorológicos para ajustar as rotas")
+Rel(sistema, servicoDePagamentos, "Envia informações para processar o pagamento das corridas")
 @enduml

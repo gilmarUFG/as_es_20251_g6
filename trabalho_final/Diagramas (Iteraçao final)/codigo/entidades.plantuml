@@ -8,15 +8,15 @@ class Usuario {
 }
 
 class Localizacao {
-  - latitude: float
-  - longitude: float
+  - latitude: decimal
+  - longitude: decimal
   - descricao: string
 }
 
 class VeiculoAutonomo {
   - placa: string
   - chassi: string
-  - autonomia: float
+  - autonomia: decimal
   - statusBateria: string
   - emOperacao: boolean
 }
@@ -61,21 +61,10 @@ class CodigoConfirmacao {
 }
 
 class Rota {
-  - distancia: float
+  - distancia: decimal
   - tempoEstimado: int
   - condicoesClimaticas: string
   - statusTrafego: string
-}
-
-class PontoRecarga {
-  - id: string
-  - disponivel: boolean
-}
-
-class Recarga {
-  - dataInicio: DateTime
-  - dataFim: DateTime
-  - energiaFornecida: float
 }
 
 class SistemaDetecaoRisco {
@@ -89,6 +78,24 @@ class EventoRisco {
   - resolvido: boolean
 }
 
+class Pagamento {
+  efetuado: boolean
+  formaPagamento: EFormaPagamento
+  dataConfirmacao: DateTime
+  valorBruto: decimal
+}
+
+class TaxaPagamento{
+  valor: decimal
+  formaPagamento: EFormaPagamento
+}
+
+Enum EFormaPagamento {
+  PIX
+  CREDITO
+  DEBITO
+}
+
 Usuario "1" -- "0..*" Solicitacao : realiza
 Solicitacao "1" -- "1" Localizacao : localPartida
 Solicitacao "1" -- "1" Localizacao : localDestino
@@ -100,18 +107,20 @@ Viagem "1" -- "1" CodigoConfirmacao : codigoConfirmacao
 Viagem "1" -- "1" Rota : rota
 Viagem "1" -- "0..1" AvaliacaoFinal
 Viagem "1" -- "0..*" EmergenciaOcorrida
+Viagem "1" -- "1" Pagamento
+
+Pagamento -- EFormaPagamento
+Pagamento "0..*" -- "0..*" TaxaPagamento
+TaxaPagamento -- EFormaPagamento
 
 EGravidadeEmergencia -- EmergenciaOcorrida
 AcidenteOcorrido "0..1" -- "1" EmergenciaOcorrida
 EGravidadeEmergencia -- AcidenteOcorrido
 
 VeiculoAutonomo "1" -- "1" Localizacao : localizacaoAtual
-VeiculoAutonomo "0..*" -- "0..*" Recarga : recargas
 VeiculoAutonomo -- SistemaDetecaoRisco
 Rota -- "0..2" Localizacao
 
 SistemaDetecaoRisco "1" -- "0..*" EventoRisco
 EventoRisco "1" -- "0..1" EmergenciaOcorrida
-PontoRecarga "1" -- "1" Localizacao : localizacao
-PontoRecarga "0..*" -- "0..*" Recarga : recargasDisponiveis
 @enduml
