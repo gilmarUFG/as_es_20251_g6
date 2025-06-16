@@ -1,0 +1,27 @@
+@startuml
+state "Desligado" as desligado
+state "Disponível" as disponivel
+state "Em Corrida" as em_corrida
+state "Em Emergência" as emergencia
+state "Em Manutenção" as manutencao
+state "Aguardando Confirmação" as aguardando
+
+[*] --> desligado
+
+desligado --> disponivel : Ligar veículo
+disponivel --> aguardando : Recebe solicitação de corrida
+aguardando --> disponivel : Passageiro cancela\nou timeout
+aguardando --> em_corrida : Código validado
+
+em_corrida --> disponivel : Corrida finalizada
+em_corrida --> emergencia : Risco detectado
+emergencia --> disponivel : Risco resolvido\n(intervenção manual ou automática)
+emergencia --> manutencao : Danos identificados
+
+disponivel --> manutencao : Bateria crítica\nou falha reportada
+manutencao --> disponivel : Manutenção concluída
+note right of emergencia
+  1. Parada imediata (VehicleService)
+  2. Ativação de alertas luminosos/sonoros
+end note
+@enduml
