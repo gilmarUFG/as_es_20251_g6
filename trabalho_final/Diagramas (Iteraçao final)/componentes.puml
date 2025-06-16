@@ -1,5 +1,14 @@
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!define C4P https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
+!includeurl C4P/C4_Container.puml
+!includeurl C4P/C4_Component.puml
+!includeurl C4P/C4_Deployment.puml
+!includeurl C4P/C4_Dynamic.puml
+!includeurl C4P/C4_Context.puml
+
+' Define custom image for database
+AddElementTag("db-icon", $sprite="cylinder")
 
 System(sistema, "Sistema Autônomo de Corridas", "Permite solicitação e operação de veículos autônomos.")
 
@@ -10,7 +19,7 @@ Container(app, "App Móvel", "Flutter", "Interface com o usuário final")
 Container(apiController, "API Controller", "Node.js", "Recebe requisições HTTP/MQTT do App ou do Veículo")
 Container(apiService, "API Service", "Java", "Processa regras de negócio (corrida, cancelamento, avaliação)")
 Container(apiBridge, "API Bridge", "MQTT Client", "Comunica com o veículo e serviços externos")
-Container(banco, "Banco de Dados", "PostgreSQL", "Armazena dados do sistema")
+Container(banco, "Banco de Dados", "PostgreSQL", "Armazena dados do sistema", "db-icon")
 Container(faqAjuda, "Central de Ajuda", "HTML Estático", "Conteúdo acessado via API")
 
 ' --- SERVIÇO DE ROTAS
@@ -31,10 +40,8 @@ Container(vehicleService, "VehicleService", "C++", "Executa lógica de navegaç�
 
 Container(geoController, "GeoPositioningController", "Sensor Driver", "Recebe sinal de GPS")
 Container(geoService, "GeoPositioningService", "GPS Logic", "Interpreta localização e atualiza posição")
-
 Container(powerController, "PowerMonitorController", "Sensor Driver", "Monitora carga elétrica")
 Container(powerService, "PowerMonitorService", "Battery Logic", "Analisa autonomia, define disponibilidade")
-
 Container(riskController, "RiskDetectionController", "Sensor Fusion", "Recebe dados de sensores")
 Container(riskService, "RiskDetectionService", "IA de Prevenção", "Prevê colisões e executa manobras")
 
@@ -72,5 +79,10 @@ Rel(servicoRotasController, servicoRotasService, "Calcula rota")
 Rel(servicoRotasService, apiTransito, "Consulta tráfego")
 Rel(servicoRotasService, apiClima, "Consulta clima")
 Rel(servicoRotasService, geoService, "Consulta localização atual")
+
+' --- NOVAS CONEXÕES DO BANCO DE DADOS
+Rel( geoService,         banco,   "Armazena histórico de localização")
+Rel( powerService,       banco,   "Armazena dados de bateria")
+Rel( servicoRotasService,banco, "Armazena rotas e histórico")
 
 @enduml
