@@ -13,6 +13,7 @@ System_Boundary(sistema, "Sistema de Transporte Autônomo") {
 
 Container_Ext(apiTrafego, "API de Trânsito", "Serviço Externo", "Fornece dados de tráfego em tempo real")
 Container_Ext(apiClima, "API de Clima", "Serviço Externo", "Fornece condições meteorológicas")
+Container_Ext(apiPagamentos, "API de Pagamentos", "Serviço Externo", "Confirma pagamentos de corridas")
 
 
 Rel(usuario, appMobile, "Usa para solicitar corridas, receber rotas, validar veículo e mecanismos de diálogo")
@@ -23,5 +24,6 @@ Rel(apiBackend, servicoRotas, "Solicita cálculo de rotas otimizadas")
 Rel(apiBackend, faqAjuda, "Redireciona para central de ajuda")
 Rel(apiBackend, apiTrafego, "Consulta tráfego em tempo real")
 Rel(apiBackend, apiClima, "Consulta condições meteorológicas")
+Rel(apiBackend, apiPagamentos, "Cria intenções de pagamento e busca confirmações")
 
 @enduml
