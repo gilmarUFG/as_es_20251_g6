@@ -1,0 +1,67 @@
+@startuml Nível 4 - Sequência de Detecção de Riscos
+
+actor "Usuário Passageiro" as user
+participant "App Móvel" as APP
+participant "API Controller" as SCV
+participant "API Service" as SSV
+participant "RotasController" as RC
+participant "RotasService" as SR
+participant "GeoPositioningService" as SG
+participant "API Bridge" as BRIDGE
+participant "Vehicle Bridge" as VEHICLE
+database "Postgres" as BD
+
+user -> APP: Solicita corrida
+APP -> SCV: POST /solicitar-corrida (localizacaoInicial, localizacaoFinal)
+activate SCV
+SCV -> SSV: solicitarCorrida(localizacaoInicial, localizacaoFinal)
+activate SSV
+SSV -> RC: calcularRota(localizacaoInicial, localizacaoFinal)
+RC -> SR: calcularRota(localizacaoInicial, localizacaoFinal)
+activate RC
+activate SR
+
+SR -> SG: obterVeiculoProximo(localizacaoInicial, localizacaoFinal)
+activate SG
+alt localizacaoInicial == localizacaoDestino
+    SG --> SR: **Erro**
+
+else localizacaoInicial != localizacaoDestino
+    activate BD
+    SG -> BD: buscarVeiculosMaisProximos(localizacaoInicial)
+    BD --> SG: Veículos próximos ao usuário
+    deactivate BD
+    SG -> SG: calcularDistanciaUsuarioVeiculosProximos(localizacaoInicial, localizacaoFinal)
+    activate SG
+    deactivate SG
+    SG --> SR: Veículo mais próximo
+    deactivate SG
+    SR -> SR: calcularMelhorRota(localizacaoInicial, localizacaoFinal)
+    activate SR
+    deactivate SR
+    SR --> RC: Melhor rota
+    RC --> SSV: Melhor rota
+    deactivate RC
+    deactivate SR
+    SSV --> SCV: Melhor rota
+    SCV --> APP: Melhorar rota
+    APP --> user: Rota disponível para visualização do usuário
+    deactivate SG
+    user -> APP: confirmar corrida
+    APP -> SCV: POST /confirmar-corrida (corrida)
+    SCV -> SSV: confirmarCorrida(corrida)
+    activate BD
+    SSV -> BD: criarRegistroCorrida(corrida)
+    deactivate BD
+    activate BRIDGE
+    SSV -> BRIDGE: solicitarVeiculo(corrida)
+    deactivate BRIDGE
+    activate VEHICLE
+    BRIDGE -> VEHICLE: MQTT publish (veículo/5332/iniciar-corrida)
+    deactivate VEHICLE
+    deactivate SSV
+end
+deactivate SR
+deactivate SCV
+deactivate SSV
+@enduml
