@@ -2,12 +2,7 @@
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 !define C4P https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master
 !includeurl C4P/C4_Container.puml
-!includeurl C4P/C4_Component.puml
-!includeurl C4P/C4_Deployment.puml
-!includeurl C4P/C4_Dynamic.puml
-!includeurl C4P/C4_Context.puml
 
-' Define custom image for database
 AddElementTag("db-icon", $sprite="cylinder")
 
 System(sistema, "Sistema Autônomo de Corridas", "Permite solicitação e operação de veículos autônomos.")
@@ -27,21 +22,22 @@ Container(servicoRotasController, "RotasController", "Python REST", "Recebe pedi
 Container(servicoRotasService, "RotasService", "Python", "Processa algoritmos de rotas com dados externos")
 
 ' --- APIs externas
-Container(apiTransito, "API de Trânsito", "REST", "Fornece dados em tempo real de tráfego")
-Container(apiClima, "API de Clima", "REST", "Fornece dados climáticos")
+Container(apiTransito, "API de Trânsito", "REST [EXTERNO]", "Fornece dados em tempo real de tráfego")
+Container(apiClima, "API de Clima", "REST [EXTERNO]", "Fornece dados climáticos")
+Container(apiPagamento, "API de Pagamento", "REST  [EXTERNO]", "Calcula valor da corrida e gerencia transações")
 
 ' --- VEÍCULO - BRIDGE + LÓGICA
 Container(veiculoBridge, "VehicleBridge", "MQTT/REST", "Gateway principal de comunicação com o backend")
-
 Container(vehicleController, "VehicleController", "ROS/Node", "Recebe comandos do bridge (parar, desviar)")
 Container(vehicleService, "VehicleService", "C++", "Executa lógica de navegação e controle do carro")
 
 ' --- MÓDULOS DO VEÍCULO
-
 Container(geoController, "GeoPositioningController", "Sensor Driver", "Recebe sinal de GPS")
 Container(geoService, "GeoPositioningService", "GPS Logic", "Interpreta localização e atualiza posição")
+
 Container(powerController, "PowerMonitorController", "Sensor Driver", "Monitora carga elétrica")
 Container(powerService, "PowerMonitorService", "Battery Logic", "Analisa autonomia, define disponibilidade")
+
 Container(riskController, "RiskDetectionController", "Sensor Fusion", "Recebe dados de sensores")
 Container(riskService, "RiskDetectionService", "IA de Prevenção", "Prevê colisões e executa manobras")
 
@@ -55,6 +51,10 @@ Rel(apiController, apiService, "Repassa requisições")
 Rel(apiService, banco, "Consulta e atualiza")
 Rel(apiService, faqAjuda, "Consulta conteúdo")
 Rel(apiService, apiBridge, "Solicita ações no veículo")
+Rel(apiService, apiPagamento, "Solicita cálculo de custo e inicia pagamento")
+
+' Pagamento
+Rel(apiPagamento, apiBridge, "Pagamento aprovado → Iniciar corrida")
 
 ' API Bridge <-> VeículoBridge
 Rel(apiBridge, veiculoBridge, "Envia comandos e recebe eventos", "MQTT")
@@ -66,10 +66,8 @@ Rel(vehicleController, vehicleService, "Executa lógica embarcada")
 ' Módulos - Veículo
 Rel(vehicleService, geoController, "Consulta posição")
 Rel(geoController, geoService, "Fornece localização")
-
 Rel(vehicleService, powerController, "Verifica energia")
 Rel(powerController, powerService, "Análise de autonomia")
-
 Rel(vehicleService, riskController, "Monitora sensores")
 Rel(riskController, riskService, "Prevê risco e executa ações")
 
@@ -80,9 +78,9 @@ Rel(servicoRotasService, apiTransito, "Consulta tráfego")
 Rel(servicoRotasService, apiClima, "Consulta clima")
 Rel(servicoRotasService, geoService, "Consulta localização atual")
 
-' --- NOVAS CONEXÕES DO BANCO DE DADOS
-Rel( geoService,         banco,   "Armazena histórico de localização")
-Rel( powerService,       banco,   "Armazena dados de bateria")
-Rel( servicoRotasService,banco, "Armazena rotas e histórico")
+' --- CONEXÕES DO BANCO DE DADOS
+Rel(geoService, banco, "Armazena histórico de localização")
+Rel(powerService, banco, "Armazena dados de bateria")
+Rel(servicoRotasService, banco, "Armazena rotas e histórico")
 
 @enduml
