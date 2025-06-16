@@ -18,7 +18,29 @@ class VeiculoAutonomo {
   - chassi: string
   - autonomia: decimal
   - statusBateria: string
-  - emOperacao: boolean
+  + status: EEstadosVeiculo
+}
+
+class Manutencao {
+  dataInicio: DateTime
+  dataFim: DateTime
+  tipo: ETiposManutencao
+  descricao: String
+}
+
+Enum ETiposManutencao{
+  PREVENTIVA
+  CORRETIVA
+  BATERIA
+}
+
+Enum EEstadosVeiculo{
+  DESLIGADO
+  DISPONIVEL
+  AGUARDANDO
+  EM_CORRIDA
+  EM_MANUTENCAO
+  EM_EMERGENCIA
 }
 
 class Solicitacao {
@@ -130,7 +152,11 @@ AcidenteOcorrido "1" -- "0..*" FotoRegistrada
 
 VeiculoAutonomo "1" -- "1" Localizacao : localizacaoAtual
 VeiculoAutonomo -- SistemaDetecaoRisco
+VeiculoAutonomo -- EEstadosVeiculo
+VeiculoAutonomo "1" -- "0..*" Manutencao
 Rota -- "0..2" Localizacao
+
+Manutencao -- ETiposManutencao
 
 SistemaDetecaoRisco "1" -- "0..*" EventoRisco
 EventoRisco "1" -- "0..1" EmergenciaOcorrida
