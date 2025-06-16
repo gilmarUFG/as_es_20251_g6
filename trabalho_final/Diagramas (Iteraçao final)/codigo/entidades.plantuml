@@ -45,12 +45,22 @@ class EmergenciaOcorrida {
 
 class AcidenteOcorrido{
     - dataOcorrencia: DateTime
-    - fotosRegistrada : string[]
+    - fotos : FotoRegistrada[]
 }
+
+class FotoRegistrada{
+  - imagem: string
+  - timestamp: DateTime
+  - metadados: JSON (ex: resolução, sensor_origem)
+}
+
+note left of FotoRegistrada::"imagem: string"
+  Base64 da foto
+end note
 
 Enum EGravidadeEmergencia{
     LEVE
-    MÉDIA
+    MEDIA
     GRAVE
 }
 
@@ -91,9 +101,9 @@ class TaxaPagamento{
 }
 
 Enum EFormaPagamento {
-  PIX
-  CREDITO
-  DEBITO
+PIX
+CREDITO
+DEBITO
 }
 
 Usuario "1" -- "0..*" Solicitacao : realiza
@@ -116,6 +126,7 @@ TaxaPagamento -- EFormaPagamento
 EGravidadeEmergencia -- EmergenciaOcorrida
 AcidenteOcorrido "0..1" -- "1" EmergenciaOcorrida
 EGravidadeEmergencia -- AcidenteOcorrido
+AcidenteOcorrido "1" -- "0..*" FotoRegistrada
 
 VeiculoAutonomo "1" -- "1" Localizacao : localizacaoAtual
 VeiculoAutonomo -- SistemaDetecaoRisco
