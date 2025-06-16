@@ -22,7 +22,7 @@ O Sistema de Veículo Autônomo é uma solução completa para solicitação, ge
 - Sistema deve operar 24/7 com alta disponibilidade (99.9%)
 - Latência máxima de 2 segundos para solicitações críticas
 - Suporte a dispositivos móveis iOS e Android
-- Conformidade com protocolos de segurança veicular (ISO 26262)
+- Conformidade com protocolos de segurança veicular
 
 ### 2.2 Restrições Organizacionais
 - Conformidade com LGPD para proteção de dados pessoais
@@ -75,15 +75,7 @@ O desenvolvimento do sistema foi organizado em duas iterações principais, cada
 ### 4.1 Abordagem Arquitetural
 A arquitetura segue padrão de microserviços com separação clara entre frontend móvel, backend de negócios, sistemas embarcados e serviços especializados. A comunicação é baseada em protocolos assíncronos para garantir responsividade e confiabilidade.
 
-### 4.2 Tecnologias Principais
-- **Frontend**: Flutter para aplicativo móvel multiplataforma
-- **Backend**: Node.js para API Controller, Java para serviços de negócio
-- **Banco de Dados**: PostgreSQL para persistência
-- **Comunicação Veicular**: MQTT para mensageria
-- **Serviços de Rota**: Python com algoritmos de otimização
-- **Sistemas Embarcados**: ROS (Robot Operating System) e C++
-
-### 4.3 Padrões Arquiteturais
+### 4.2 Padrões Arquiteturais
 - **C4 Model**: Modelagem arquitetural em quatro níveis hierárquicos (Contexto, Container, Componente e Código) para documentação visual da arquitetura do sistema
 - **Microserviços**: Separação por domínio funcional
 - **Event-Driven**: Comunicação assíncrona baseada em eventos
@@ -141,14 +133,14 @@ O sistema é decomposto em containeres principais:
 - **Módulo de Emergência**: Botão de pânico e comunicação direta com operadores
 
 **Container: API Backend**
-- **API Controller (Node.js)**:
+- **API Controller**:
   - Endpoint de solicitação de corridas (/solicitar-corrida)
   - Endpoint de confirmação (/confirmar-corrida)
   - Endpoint de validação de códigos (/validar-codigo)
   - Endpoint de emergências (/emergencia)
   - Endpoint de avaliações (/avaliar-servico)
 
-- **API Service (Java)**:
+- **API Service**:
   - Processamento de regras de negócio para corridas
   - Gerenciamento de usuários e autenticação
   - Controle de estados de veículos e disponibilidade
@@ -156,26 +148,26 @@ O sistema é decomposto em containeres principais:
   - Gerenciamento de emergências e acidentes
   - Processamento de pagamento
 
-- **API Bridge (MQTT Client)**:
+- **API Bridge**:
   - Comunicação bidirecional com veículos
   - Publicação de comandos (iniciar-corrida, parar, desviar)
   - Recepção de eventos (posição, status, emergências)
   - Gerenciamento de filas de mensagens
   - Tratamento de desconexões e reconnexões
 
-**Container: Central de Ajuda / FAQs (WebApp Estático)**
+**Container: Central de Ajuda / FAQs**
 - **Módulo de Busca**: Sistema de busca por palavras-chave e categorias
 - **Base de Conhecimento**: Artigos organizados por temas (pagamento, segurança, operação)
 - **Guias Visuais**: Tutoriais passo-a-passo com imagens e vídeos
 - **Sistema de Feedback**: Avaliação da utilidade dos artigos
 
-**Container: Serviço de Cálculo de Rotas (Python)**
+**Container: Serviço de Cálculo de Rotas**
 - **RotasController (REST API)**:
   - Endpoint de cálculo de rotas (/calcular-rota)
   - Endpoint de atualização de rotas (/atualizar-rota)
   - Endpoint de consulta de tráfego (/consultar-trafego)
 
-- **RotasService (Python)**:
+- **RotasService**:
   - Algoritmo otimizado para múltiplos critérios
   - Processamento de dados de tráfego em tempo real
   - Análise de condições meteorológicas e impacto nas rotas
@@ -183,15 +175,15 @@ O sistema é decomposto em containeres principais:
   - Sistema de cache distribuído para rotas frequentes
 
 **Container: Sistemas Embarcados do Veículo**
-- **Vehicle Bridge (MQTT Gateway)**:
+- **Vehicle Bridge**:
   - Cliente MQTT para comunicação com backend
   - Heartbeat para monitoramento de conectividade
 
-- **Vehicle Controller (ROS/Node.js)**:
+- **Vehicle Controller**:
   - Recepção e interpretação de comandos remotos
   - Coordenação entre sistemas embarcados
 
-- **Vehicle Service (C++)**:
+- **Vehicle Service**:
   - Algoritmos de navegação autônoma
   - Controle de velocidade e direção
   - Integração com sistemas de frenagem
