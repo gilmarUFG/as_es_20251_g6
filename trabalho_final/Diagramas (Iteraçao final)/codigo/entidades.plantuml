@@ -1,7 +1,8 @@
 @startuml
 title Modelo de Domínio - Sistema de Veículos Autônomos (Análise)
 
-class Usuario {
+class Pessoa {
+  - cpf: string
   - nome: string
   - telefone: string
   - email: string
@@ -111,15 +112,15 @@ class EventoRisco {
 }
 
 class Pagamento {
-  efetuado: boolean
-  formaPagamento: EFormaPagamento
-  dataConfirmacao: DateTime
-  valorBruto: decimal
+ - efetuado: boolean
+ - formaPagamento: EFormaPagamento
+ - dataConfirmacao: DateTime
+ - valorBruto: decimal
 }
 
 class TaxaPagamento{
-  valor: decimal
-  formaPagamento: EFormaPagamento
+ - valor: decimal
+ - formaPagamento: EFormaPagamento
 }
 
 Enum EFormaPagamento {
@@ -128,18 +129,41 @@ CREDITO
 DEBITO
 }
 
-Usuario "1" -- "0..*" Solicitacao : realiza
+class Passageiro{
+- bloqueado: boolean
+}
+
+class OperadorFrota
+
+class Recarga {
+  - dataInicio: DateTime
+  - dataFim: DateTime
+  - energiaFornecida: decimal
+}
+
+class OrdemRecarga{
+  - dataOrdem: DateTime
+  - cumprida: boolean
+  - observacao: string
+}
+
+Passageiro -|> Pessoa
+OperadorFrota -|> Pessoa
+Passageiro "1" -- "0..*" Solicitacao : realiza
 Solicitacao "1" -- "1" Localizacao : localPartida
 Solicitacao "1" -- "1" Localizacao : localDestino
 Solicitacao "1" -- "1" VeiculoAutonomo : veiculoDesignado
 
-Viagem "1" -- "1" Usuario : passageiro
+Viagem "1" -- "1" Passageiro : passageiro
 Viagem "1" -- "1" VeiculoAutonomo : veiculo
 Viagem "1" -- "1" CodigoConfirmacao : codigoConfirmacao
 Viagem "1" -- "1" Rota : rota
 Viagem "1" -- "0..1" AvaliacaoFinal
 Viagem "1" -- "0..*" EmergenciaOcorrida
 Viagem "1" -- "1" Pagamento
+
+OrdemRecarga "0..1" -- "0..1" Recarga
+OrdemRecarga "0..*" -- "0..1" OperadorFrota
 
 Pagamento -- EFormaPagamento
 Pagamento "0..*" -- "0..*" TaxaPagamento
@@ -154,6 +178,7 @@ VeiculoAutonomo "1" -- "1" Localizacao : localizacaoAtual
 VeiculoAutonomo -- SistemaDetecaoRisco
 VeiculoAutonomo -- EEstadosVeiculo
 VeiculoAutonomo "1" -- "0..*" Manutencao
+VeiculoAutonomo "1" -- "0..*" Recarga
 Rota -- "0..2" Localizacao
 
 Manutencao -- ETiposManutencao
