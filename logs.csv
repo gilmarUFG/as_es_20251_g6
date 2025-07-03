@@ -1,0 +1,524 @@
+commit 82bc2666e839200cdda48f06d6c6db6fec118226
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Mon Jun 30 11:06:48 2025 -0300
+
+    update repository
+
+commit cd0c792bbaa82d9485578b12edf533b09051bb0a
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Mon Jun 30 10:19:12 2025 -0300
+
+    Delete readme_folder_tg.md
+
+commit 5e5d54236bcde2c0af6af1498eecb191ada6c5a4
+Merge: 853ba27 dad6808
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Sun Jun 29 12:40:09 2025 -0300
+
+    Merge branch 'estudante'
+
+commit 853ba273cabd9b7b17fe3cbca04aca1236b36fb0
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Sun Jun 29 12:39:52 2025 -0300
+
+    update repository
+
+commit b03a4d99b073d25ffed86ff0c62f40f96bfc3981
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Wed Jun 25 20:13:32 2025 -0300
+
+    corrigindo atividades
+
+commit dad6808f67ccd1a641194cb52555f105cbf7f42e
+Author: GabrielBGarcia <gabrielnpro@gmail.com>
+Date:   Wed Jun 25 15:18:55 2025 -0300
+
+    Apresentaçao de Arquitetura de Software
+
+commit 510ff4bc0a7b9ce11035078b6c94299b924ad872
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Sat Jun 21 16:09:42 2025 -0300
+
+    feat: update diagrama de classes
+
+commit fddee9d1a92e35ef7bb4081bc6d477566a86f4f5
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 16:15:06 2025 -0300
+
+    feat: add máquina de estados do veículo
+
+commit c07e1befeff31e1849bf562c331674cd6a3d2c51
+Merge: dd8e104 51fe1a3
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 16:09:16 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit dd8e104a0f51d7df31ddddb3942509e0691c9ab8
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 16:09:05 2025 -0300
+
+    feat: update diagrama de classes
+
+commit 51fe1a37eee439472a983178df6820e868f2206f
+Author: jheissyane <105369996+jheissyane@users.noreply.github.com>
+Date:   Mon Jun 16 15:28:09 2025 -0300
+
+    Update Documento de Arquitetura.md
+
+commit 1b2b56bd9c1a55a42fbe6e00435e0e9479720b81
+Merge: 2536903 371d733
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Jun 16 14:54:52 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit 2536903e1fe0c829e8af7f987a0acff10af310d7
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Jun 16 14:54:48 2025 -0300
+
+    fix: update API Backend technology description in container diagram
+
+commit f0d0edcd9d5e3cc99b822c42d808c77827980f54
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Jun 16 14:54:22 2025 -0300
+
+    fix: update service description for route calculation in container diagram
+
+commit 371d7332ba8fa17f879be234098760fd6fd10b24
+Author: jheissyane <105369996+jheissyane@users.noreply.github.com>
+Date:   Mon Jun 16 14:44:47 2025 -0300
+
+    Create Documento de Arquitetura.md
+
+commit bd2780d39e064db8438035d9b436d3f2e36279b7
+Merge: 72f1f4f b572666
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 14:08:38 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit 72f1f4f32814e876e50ee281c174c12a07980020
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 14:08:01 2025 -0300
+
+    feat: add api de pagamentos na sequencia de solicitação
+
+commit b5726660e1ae0a3253884b8604ef95cc9306f838
+Merge: 32e4958 a10bffa
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Jun 16 14:07:32 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit 32e4958764f550baf3af1e1b1c9e48429a9657b7
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Jun 16 14:07:23 2025 -0300
+
+    feat: refactor componentes.puml to use components instead of containers and enhance system representation
+
+commit a10bffab415d72458a7240aeac9b91f1c524bba3
+Merge: eb21419 7b6255f
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 13:52:09 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit eb21419070be7bf7763765e5905157553ffe5748
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 13:51:57 2025 -0300
+
+    melhorando diagrama de classes
+
+commit 7b6255fba050f71205eaed92baf0b31f4cd35e86
+Merge: 0d18656 583523a
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Jun 16 13:35:56 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit 0d18656261bcee904054e489b587db92271d7b7f
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Jun 16 13:35:52 2025 -0300
+
+    feat: update componentes.puml and container.puml to include payment API and enhance system interactions
+
+commit 583523a46afe2f9bfcb515fe269c355f334dd1d0
+Merge: e81c63e 24ac206
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 13:34:11 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit e81c63effc15b0d27dac773401182a56035bba51
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 13:34:04 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit 24ac206668d08c8fff819a4c7bfd09adc8b7050c
+Author: GabrielBGarcia <gabrielnpro@gmail.com>
+Date:   Mon Jun 16 13:30:15 2025 -0300
+
+    contexto diagrama final
+
+commit a62114b7cf2e89f1440114f5173159a29d862e04
+Merge: 06502b8 b05e61f
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 11:08:59 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit 06502b863eb6faed76febf3691b214ab536d34e5
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Jun 16 11:08:38 2025 -0300
+
+    feat: atualizando diagramas
+
+commit b05e61fc1768e8175c4a201a3a67f760d8c912ff
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Jun 16 11:08:33 2025 -0300
+
+    feat: add container.puml to define system architecture and user interactions
+
+commit 228d232d939e77b8d0b98d66ecfbae5f065b2d2d
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Sun Jun 15 19:44:42 2025 -0300
+
+    feat: add componentes.puml diagram to represent system architecture and relationships
+
+commit f2b647ae1e29e21c35c5ef700ec6371c98fbc732
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Sun Jun 15 19:37:30 2025 -0300
+
+    revert
+
+commit e5f09a88dd40d4137d554eecd979a65e1b54263c
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Sun Jun 15 19:30:30 2025 -0300
+
+    refactor: restructure componentes.puml to enhance system architecture representation
+
+commit c24c02be699d395fc8e43dd23a91447e3fd3488b
+Merge: 9de9a8d 5a15030
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Sun Jun 15 18:46:41 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit 9de9a8d8250f68fb58a60a3bba7c8d6866bd12ce
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Sun Jun 15 18:46:37 2025 -0300
+
+    Update container.puml to enhance appMobile description and clarify user interactions
+
+commit 5a15030a9e4c1315b9aff8fdb4868df44fd44b6b
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Sun Jun 15 18:42:51 2025 -0300
+
+    fix: corrigindo nome da pasta
+
+commit 102604264e5987c17ab297b4c88d1b3cae412401
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Sun Jun 15 18:41:22 2025 -0300
+
+    feat: add diagrama de sequência do RF1
+
+commit 286205124ff81bfe1159325a72c0c52dd5c1fda5
+Author: GabrielBGarcia <gabrielnpro@gmail.com>
+Date:   Sun Jun 15 17:26:34 2025 -0300
+
+    contexto
+
+commit 31be58bf476209966745088aabcea062721862c0
+Merge: c012266 462742d
+Author: GabrielBGarcia <gabrielnpro@gmail.com>
+Date:   Sun Jun 15 16:59:15 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit c012266b1a1937a4831454db84da9f167b1d15f4
+Author: GabrielBGarcia <gabrielnpro@gmail.com>
+Date:   Sun Jun 15 16:59:06 2025 -0300
+
+    contexto 1
+
+commit 462742d2922da30be04cbed0b04a74fb888c5bf8
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Sun Jun 15 16:59:06 2025 -0300
+
+    feat: atualizando diagrama de código
+
+commit a168ac126317c022bbc96dc7bc1ce8e1b6656212
+Author: Gabriel Borges Garcia <131085689+GabrielBGarcia@users.noreply.github.com>
+Date:   Sun Jun 15 16:16:26 2025 -0300
+
+    contexto
+
+commit c72d43db90824b9603ec17a8a730c93a813583b9
+Author: jheissyane <105369996+jheissyane@users.noreply.github.com>
+Date:   Sun Jun 15 15:42:56 2025 -0300
+
+    Update definicao_trabalho_final_g6.md
+
+commit c98ff5111cf17a671696343caff79376edc38d09
+Author: jheissyane <105369996+jheissyane@users.noreply.github.com>
+Date:   Sun Jun 15 15:41:39 2025 -0300
+
+    Update definicao_trabalho_final_g6.md
+
+commit a9973f5ee3d4235cc8c18ad07aac4a55fb934731
+Author: jheissyane <105369996+jheissyane@users.noreply.github.com>
+Date:   Sun Jun 15 12:06:58 2025 -0300
+
+    Rename definicao_trabalho_final_gx.md to definicao_trabalho_final_g6.md
+
+commit 6bc49aa207ada91e6f29b0aacb2c5b8d24ef34c5
+Author: jheissyane <105369996+jheissyane@users.noreply.github.com>
+Date:   Sun Jun 15 12:06:23 2025 -0300
+
+    Update definicao_trabalho_final_gx.md
+
+commit 56e0829be4bb31fadc1a8109d3af6a08e9e5b903
+Merge: 0e89269 b3bc7de
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Mon May 26 19:12:43 2025 -0300
+
+    Merge branch 'main' into estudante
+
+commit b3bc7de1ed90feadf702dc088a40481260824c4c
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Mon May 26 19:09:15 2025 -0300
+
+    update repository
+
+commit 0e892698d674685422f063d553e945143423a8c9
+Author: João Vitor <joao.vitor@anbetec.com.br>
+Date:   Sat May 24 12:28:24 2025 -0300
+
+    docs: atualizando componentes e texto de continuação da iteração 1
+
+commit c146fc62fe0d799a816636bfb983ce4c375dc736
+Merge: af644e9 2c756ae
+Author: João Vitor <joao.vitor@anbetec.com.br>
+Date:   Sat May 24 00:28:51 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit af644e92b892344112d3f49e4cab1faa03786a87
+Author: João Vitor <joao.vitor@anbetec.com.br>
+Date:   Sat May 24 00:19:35 2025 -0300
+
+    docs: add code platuml diagram
+
+commit 3af66242e927e0637d2ea420c79c6c0b00dc7883
+Author: João Vitor <joao.vitor@anbetec.com.br>
+Date:   Sat May 24 00:18:52 2025 -0300
+
+    docs: alterando container do banco de dados para containerDb
+
+commit 2c756aed82855f533fcad3f0563f9a41044d73e2
+Author: GabrielBGarcia <gabrielnpro@gmail.com>
+Date:   Thu May 22 23:33:09 2025 -0300
+
+    interaçao part 1 100%
+
+commit ae8a213cabe570237018b7f9f436e7a7e7cc6bae
+Merge: 62dc112 e03644a
+Author: GabrielBGarcia <gabrielnpro@gmail.com>
+Date:   Wed May 21 10:02:14 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit 62dc1124986f1995ab7a68529eb89914494a8080
+Author: GabrielBGarcia <gabrielnpro@gmail.com>
+Date:   Wed May 21 10:02:04 2025 -0300
+
+    trabalho final
+
+commit e03644a0830103253d97e5e0ada1dc0bc48877b1
+Author: Gabriel Borges Garcia <131085689+GabrielBGarcia@users.noreply.github.com>
+Date:   Wed May 21 09:27:43 2025 -0300
+
+    Update and rename diagrama .puml to diagrama.puml
+
+commit 2511bb3e63d7729ea57e1c1638521fec144052ea
+Author: Gabriel Borges Garcia <131085689+GabrielBGarcia@users.noreply.github.com>
+Date:   Wed May 21 09:27:28 2025 -0300
+
+    Update and rename trabalho_final/LICENSE to diagrama .puml
+
+commit 01a825ddf292195d83386fae7398c625ea0c2852
+Author: GabrielBGarcia <gabrielnpro@gmail.com>
+Date:   Wed May 21 09:25:33 2025 -0300
+
+    trabalho_final
+
+commit c058895836606d33885053089d17e85e32ed8c58
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon May 19 20:49:02 2025 -0300
+
+    Delete trabalho_final/historias_usuarios directory
+
+commit 259efe74fa61223fdd9a257b815ce0542702358b
+Merge: 025f2be b12602f
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Sun May 18 11:47:44 2025 -0300
+
+    Merge branch 'estudante' of https://github.com/gilmarUFG/as_es_20251_g6 into estudante
+
+commit 025f2be3fa38db3064bb8b7b204c4a4d3e2aa882
+Merge: 2da8d7c eb14987
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Sun May 18 11:47:39 2025 -0300
+
+    Merge remote-tracking branch 'origin/MateusGandi-patch-1' into estudante
+
+commit b12602f872e55f1665fee8a5c3d87f714c48e657
+Merge: 2da8d7c eb14987
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Mon May 12 18:45:22 2025 -0300
+
+    Merge branch 'MateusGandi-patch-1' into estudante
+
+commit 2da8d7ca063f403514cd699fcd9ffff57a018230
+Author: Carlos Antonio <75860046+zDein@users.noreply.github.com>
+Date:   Sun May 11 23:24:15 2025 -0300
+
+    Create as5_as_grupo6.md
+
+commit 4fe6c19feb219b2650da97044ee95cb620453a82
+Author: João Vitor <joao.vitor@anbetec.com.br>
+Date:   Mon May 5 22:09:30 2025 -0300
+
+    docs: add rnf1 user history
+
+commit 743042e868fb44b7ae136847153d73a77d51ee42
+Author: João Vitor <joao.vitor@anbetec.com.br>
+Date:   Mon May 5 21:17:44 2025 -0300
+
+    docs: add rf1 user history
+
+commit 00e0a5620b443433a0ed68bd374cb56485d3b017
+Author: João Vitor <joao.vitor@anbetec.com.br>
+Date:   Mon May 5 20:16:17 2025 -0300
+
+    fix: corrigindo indíces dos requisitos
+
+commit dedf41d5e1d709e74b7d191ed9b76c8080fa02d3
+Author: Gabriel Borges Garcia <131085689+GabrielBGarcia@users.noreply.github.com>
+Date:   Sun May 4 11:15:28 2025 -0300
+
+    Create  definicao_trabalho_final_gx.md
+
+commit eb14987a10a89b5f33a4c6a2e0fbf451cbbd155b
+Author: Gabriel Borges Garcia <131085689+GabrielBGarcia@users.noreply.github.com>
+Date:   Sun May 4 11:13:11 2025 -0300
+
+    Definição de requisitos
+
+commit 5f64644194c4029bc0a553aa80f9dc04040d31b3
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Sun Apr 27 10:48:58 2025 -0300
+
+    Add files via upload
+
+commit d09ff9d140b9bfec7b85b25e29182652245e33e7
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Sun Apr 27 10:47:07 2025 -0300
+
+    Add files via upload
+
+commit 8667b942f19e287e5951518b29af13e0f42054d6
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Sat Apr 19 12:48:17 2025 -0300
+
+    update repository
+
+commit b92487dc3b252331307596d114dc8c825e8249d7
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Sun Apr 13 15:00:07 2025 -0300
+
+    Update atv3.md
+
+commit 41bea8cada347ac22e45cd5a6d5f12738bca8289
+Author: jheissyane <105369996+jheissyane@users.noreply.github.com>
+Date:   Sat Apr 12 19:48:14 2025 -0300
+
+    Update atv3.md
+
+commit 1be55f1762c150e289701e59a4478598762c8991
+Author: Gabriel Borges Garcia <131085689+GabrielBGarcia@users.noreply.github.com>
+Date:   Wed Apr 9 10:51:46 2025 -0300
+
+    Update atv3.md
+
+commit 1ff8231813686ed252bf9418ac86db9eb19f0d2a
+Author: Gabriel Borges Garcia <131085689+GabrielBGarcia@users.noreply.github.com>
+Date:   Wed Apr 9 10:51:24 2025 -0300
+
+    atv3.md
+
+commit 23dd4cb5816dd1c098a5fec9c271e75e89b36415
+Author: Gabriel Borges Garcia <131085689+GabrielBGarcia@users.noreply.github.com>
+Date:   Wed Apr 9 10:45:55 2025 -0300
+
+    avs3.md
+
+commit 6dba79ee23498479939c940f55fcb0b17c23b7e5
+Author: Gabriel Borges Garcia <131085689+GabrielBGarcia@users.noreply.github.com>
+Date:   Wed Apr 9 10:45:04 2025 -0300
+
+    Create Atividade Supervisionada 03.
+
+commit 1322a3565d3d567987b6003c06152db789124b7f
+Merge: 194097e 7507104
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Thu Mar 27 20:56:24 2025 -0300
+
+    Merge branch 'estudante'
+
+commit 7507104a2e39a1b2995fabc62ea302265fcc6b07
+Author: João Vitor <joaovitoralves2009@hotmail.com>
+Date:   Mon Mar 24 21:31:41 2025 -0300
+
+    Update README.md
+
+commit 194097e90711ebbd19fabb765b74ee1fab54f541
+Merge: 049aa6d 7ed3931
+Author: Gilmar Ferreira Arantes <130784207+gilmarUFG@users.noreply.github.com>
+Date:   Fri Mar 21 19:06:11 2025 -0300
+
+    Merge pull request #1 from gilmarUFG/estudante
+    
+    Estudante
+
+commit 7ed393143060d76c3a42683008a5f801f4fa5336
+Author: João Vitor <joao.vitor@anbetec.com.br>
+Date:   Thu Mar 20 18:55:11 2025 -0300
+
+    docs: add atv1
+
+commit 4d4e908f8f6db2fcd6853a0cdf3f852ffcd74414
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Mar 17 21:05:21 2025 -0300
+
+    Update README.md
+
+commit ae5250dda9c150da1b979dd5f54cebd401cdf28f
+Author: Mateus Gandi <85565488+MateusGandi@users.noreply.github.com>
+Date:   Mon Mar 17 20:55:01 2025 -0300
+
+    Update README.md
+
+commit 049aa6d80f38d3583cc730715c5a445343e6f12a
+Author: Gilmar Ferreira Arantes <gilmar.arantes@ufg.br>
+Date:   Fri Feb 28 17:01:22 2025 -0300
+
+    Update README.md file.
+
+commit 54fa1fe7bdbd930cd8e43064394c746e55980358
+Author: Gilmar Ferreira Arantes <130784207+gilmarUFG@users.noreply.github.com>
+Date:   Fri Feb 28 14:34:27 2025 -0300
+
+    Initial commit
